@@ -25,8 +25,8 @@ resource "aws_autoscaling_group" "asg-web" {
   metrics_granularity = "1Minute"
   
  vpc_zone_identifier  = [
-    "us-east-1a",
-    "us-east-1b"
+    aws_subnet.main-1.id,
+    aws_subnet.main-2.id
   ]
 
   # Required to redeploy without an outage.
